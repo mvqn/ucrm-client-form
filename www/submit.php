@@ -4,7 +4,8 @@
 require_once __DIR__ . "/src/RestClient.php";
 
 // Load the configuration file...
-$config = include(__DIR__ . "/config.php");
+//$config = include(__DIR__."/config.php");
+require_once __DIR__."/bootstrap.php";
 
 //Notify the user of a successful submission!
 echo "Thank you for your submission, a sales representative will contact you soon!";
@@ -12,7 +13,7 @@ echo "Thank you for your submission, a sales representative will contact you soo
 
 
 // Create the REST Client.
-$rest = new RestClient($config["ucrmApiUrl"], $config["ucrmAppKey"]);
+$rest = new RestClient($config["ucrm"]["rest"]["url"], $config["ucrm"]["rest"]["key"]);
 
 
 // Determine the CountryId, or UCRM will assign the organization's default.
