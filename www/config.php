@@ -2,10 +2,15 @@
 
 return
 [
+    "site" =>
+    [
+        "name" => "Client Lead Demo",
+        "url" => "http://localhost",
+    ],
 
     "ucrm" =>
     [
-        "host" => getenv("UCRM_HOST") ?: "https://ucrm.dev.example.com",
+        "host" => getenv("UCRM_HOST") ?: "http://ucrm.dev.example.com",
 
         "rest" =>
         [
@@ -53,6 +58,22 @@ return
         ]
     ],
 
+    "smtp" =>
+    [
+        "server" => getenv("SMTP_SERVER") ?: "",
+        "sender" =>
+            [
+                "email" => getenv("SMTP_SENDER_EMAIL") ?: "",
+                "name" => getenv("SMTP_SENDER_NAME") ?: "",
+            ],
+        "username" => getenv("SMTP_USERNAME") ?: "",
+        "password" => getenv("SMTP_PASSWORD") ?: "",
+        "subject" => getenv("SMTP_SENDER") ?: "New Client Lead",
 
+        "recipients" =>
+        [
+            "rspaeth@mvqn.net" => "Ryan Spaeth"
+        ]
+    ],
 
 ];
