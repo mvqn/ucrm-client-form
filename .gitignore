@@ -60,7 +60,10 @@ fabric.properties
 # Editor-based Rest Client
 .idea/httpRequests
 
-vendor/
+www/vendor/
+www/assets/
 .env
 composer.lock
 config.dev.php
+
+yarn-error.log
