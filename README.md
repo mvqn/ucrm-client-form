@@ -13,8 +13,11 @@ This is a stand-alone set of HTML, CSS and JS files that may need to be slightly
 3. Edit the config.php file accordingly.
 4. Enjoy! 
 
+
 ## Screenshots
 - [Full Page Layout](screenshots/full.jpg)
+- [Compact Layout (Inputs)](screenshots/compact_01.jpg)
+- [Compact Layout (Location)](screenshots/compact_02.jpg)
 
 
 ## About
