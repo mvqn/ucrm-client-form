@@ -9,6 +9,7 @@
 
 require_once __DIR__."/bootstrap.php";
 
+
 // Render the appropriate template!
 echo $twig->render("compact.html.twig", [ "config" => $config ]);
 

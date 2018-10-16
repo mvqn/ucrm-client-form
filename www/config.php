@@ -37,6 +37,19 @@ return
                 "zoom" => (int)(getenv("GOOGLE_MAPS_DEFAULT_ZOOM") ?: 1),
             ],
 
+            "layers" =>
+            [
+                //"http://ucrm.dev.mvqn.net/Meteorite_Impacts_from_around_the_World.kmz",
+                //"http://ucrm.dev.mvqn.net/Wal-Mart_sites.kml"
+                //"http://ucrm.dev.mvqn.net/McDonald's_Europe.kml",
+                //"http://ucrm.dev.mvqn.net/costco-gas-stations.kml",
+                "http://api.flickr.com/services/feeds/geo/?g=322338@N20&lang=en-us&format=feed-georss"
+            ],
+
+            "heatmaps" =>
+            [
+                // Not yet implemented!
+            ]
         ]
     ],
 
