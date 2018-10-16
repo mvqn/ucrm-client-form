@@ -1,32 +1,41 @@
 {% extends "html.twig" %}
 
 {% block scripts %}
-{# Intialize and populate the config object with configuration values from PHP to be made available to JS. #}
-<script>
-    /**
-     * @class config
-     *
-     * @property {Object} ucrm
-     * @property {String} host
-     * @property {Object} rest
-     * @property {String} rest.url
-     * @property {String} rest.key
-     *
-     * @property {Object} maps
-     * @property {Object} maps.google
-     * @property {Object} maps.google.api
-     * @property {String} maps.google.api.key
-     * @property {Object} maps.google.defaults
-     * @property {Number} maps.google.defaults.latitude
-     * @property {Number} maps.google.defaults.longitude
-     * @property {Number} maps.google.defaults.zoom
-     * @property {Object} maps.google.layers
-     * @property {Object} maps.google.heatmaps
-     */
-    let config = {{ config|json_encode|raw }};
-</script>
+    {# Intialize and populate the config object with configuration values from PHP to be made available to JS. #}
+    <script>
+        /**
+         * @class config
+         * @property {Object} site
+         * @property {String} site.name
+         * @property {String} site.url
+         *
+         * @property {Object} ucrm
+         * @property {String} ucrm.host
+         *
+         * @property {Object} rest
+         * @property {String} rest.url
+         * @property {String} rest.key
+         *
+         * @property {Object} maps
+         * @property {Object} maps.google
+         * @property {Object} maps.google.api
+         * @property {String} maps.google.api.key
+         * @property {Object} maps.google.defaults
+         * @property {Number} maps.google.defaults.latitude
+         * @property {Number} maps.google.defaults.longitude
+         * @property {Number} maps.google.defaults.zoom
+         * @property {Array} maps.google.layers
+         * @property {Object} maps.google.heatmaps
+         */
+        let config = {{ config|json_encode|raw }};
+    </script>
 
-<script src="js/validation.js"></script>
-<script src="js/form.js"></script>
-<script src="js/map.js"></script>
+    {# Load our custom scripts. #}
+    <script src="js/validation.js"></script>
+    <script src="js/form.js"></script>
+    <script src="js/map.js"></script>
+
+    {# Load the Google Maps API script, providing the API key and a callback function. #}
+    <script src="https://maps.googleapis.com/maps/api/js?key={{ config.maps.google.api.key}}&callback=initMap">
+    </script>
 {% endblock %}

@@ -17,7 +17,7 @@
                        name="clientType"
                        value="1"
                        checked
-                       onclick="typeChanged(this)" />
+                       onclick="typeChanged(this.value)" />
                 <label class="form-check-label" for="clientTypeResidential">Residential</label>
             </div>
             <div class="form-check form-check-inline">
@@ -25,7 +25,7 @@
                        type="radio"
                        name="clientType"
                        value="2"
-                       onclick="typeChanged(this)" />
+                       onclick="typeChanged(this.value)" />
                 <label class="form-check-label" for="clientTypeCommercial">Commercial</label>
             </div>
         </div>
@@ -139,7 +139,7 @@
                        readonly
                 />
                 <div class="input-group-append">
-                    <div id="geocodeButton" class="btn btn-secondary rounded-right disabled"
+                    <div id="locateButton" class="btn btn-secondary rounded-right disabled"
                          onclick="geocodeAddress(this)">
                         Geocode
                     </div>
@@ -198,7 +198,7 @@
                            name="agreement"
                            aria-describedby="agreementHelp"
                            value="yes"
-                           onchange="updateAgreement(this)" />
+                           onchange="updateAgreement(this.checked)" />
                     <strong>Check here to indicate that you have read and agree to the "Terms of Service".</strong>
                 </label>
             </div>

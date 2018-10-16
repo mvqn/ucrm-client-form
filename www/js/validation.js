@@ -1,25 +1,22 @@
 
 
-
-$(function()
-{
-    $("#signUpForm").validate(
-    {
+/**
+ * Runs when the document.ready event is triggered.
+ */
+$(function() {
+    // Configure the form validation options...
+    $("#signUpForm").validate({
         // Disable checking after every key press!
         onkeyup: false,
 
         // Custom validation handler...
-        invalidHandler: function(form, validator)
-        {
-
-
+        invalidHandler: function(form, validator) {
             // If there are no invalid values, simply return!
             if (!validator.numberOfInvalids())
                 return;
 
             // Move back up to (and a little past) the first validation error field.
-            $('html, body').animate(
-            {
+            $('html, body').animate({
                 scrollTop: $(validator.errorList[0].element).offset().top - 100
             }, 500);
 
@@ -28,12 +25,9 @@ $(function()
         },
 
         // Specify validation rules...
-        rules:
-        {
-            companyName:
-            {
-                required: function()
-                {
+        rules: {
+            companyName: {
+                required: function() {
                     // Only required when the clientType is "Commercial"!
                     let selected = $("input[name='clientType']:checked").val();
                     return selected === "2";
@@ -41,8 +35,7 @@ $(function()
             },
             firstName: "required",
             lastName: "required",
-            email:
-            {
+            email: {
                 required: true,
                 // Specify that email should be validated by the built-in "email" rule.
                 email: true
@@ -57,8 +50,7 @@ $(function()
             agreement: "required"
         },
         // Specify validation error messages
-        messages:
-        {
+        messages: {
             companyName: "When Client Type = Commercial, Company Name is required.",
             firstName: "First Name is required.",
             lastName: "Last Name is required.",
