@@ -1,4 +1,75 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="PhpIncludePathManager">
+    <include_path>
+      <path value="$PROJECT_DIR$/www/vendor/fxp/composer-asset-plugin" />
+      <path value="$PROJECT_DIR$/www/server/vendor/phpunit/php-token-stream" />
+      <path value="$PROJECT_DIR$/www/server/vendor/sebastian/environment" />
+      <path value="$PROJECT_DIR$/www/server/vendor/phpunit/php-code-coverage" />
+      <path value="$PROJECT_DIR$/www/server/vendor/sebastian/exporter" />
+      <path value="$PROJECT_DIR$/www/server/vendor/phpunit/phpunit" />
+      <path value="$PROJECT_DIR$/www/server/vendor/sebastian/recursion-context" />
+      <path value="$PROJECT_DIR$/www/server/vendor/sebastian/object-enumerator" />
+      <path value="$PROJECT_DIR$/www/server/vendor/phpunit/php-file-iterator" />
+      <path value="$PROJECT_DIR$/www/server/vendor/vlucas/phpdotenv" />
+      <path value="$PROJECT_DIR$/www/server/vendor/phpunit/php-timer" />
+      <path value="$PROJECT_DIR$/www/server/vendor/sebastian/global-state" />
+      <path value="$PROJECT_DIR$/www/server/vendor/phpunit/php-text-template" />
+      <path value="$PROJECT_DIR$/www/server/vendor/sebastian/comparator" />
+      <path value="$PROJECT_DIR$/www/server/vendor/sebastian/version" />
+      <path value="$PROJECT_DIR$/www/server/vendor/theseer/tokenizer" />
+      <path value="$PROJECT_DIR$/www/server/vendor/phpspec/prophecy" />
+      <path value="$PROJECT_DIR$/www/server/vendor/webmozart/assert" />
+      <path value="$PROJECT_DIR$/www/server/vendor/sebastian/object-reflector" />
+      <path value="$PROJECT_DIR$/www/server/vendor/sebastian/resource-operations" />
+      <path value="$PROJECT_DIR$/www/server/vendor/sebastian/code-unit-reverse-lookup" />
+      <path value="$PROJECT_DIR$/www/server/vendor/sebastian/diff" />
+      <path value="$PROJECT_DIR$/www/server/vendor/composer" />
+      <path value="$PROJECT_DIR$/www/server/vendor/myclabs/deep-copy" />
+      <path value="$PROJECT_DIR$/www/server/vendor/phpdocumentor/reflection-docblock" />
+      <path value="$PROJECT_DIR$/www/server/vendor/phpdocumentor/type-resolver" />
+      <path value="$PROJECT_DIR$/www/server/vendor/phpdocumentor/reflection-common" />
+      <path value="$PROJECT_DIR$/www/server/vendor/doctrine/instantiator" />
+      <path value="$PROJECT_DIR$/www/server/vendor/phar-io/version" />
+      <path value="$PROJECT_DIR$/www/server/vendor/phar-io/manifest" />
+      <path value="$PROJECT_DIR$/www/vendor/phpunit/php-token-stream" />
+      <path value="$PROJECT_DIR$/www/vendor/sebastian/environment" />
+      <path value="$PROJECT_DIR$/www/vendor/phpunit/php-code-coverage" />
+      <path value="$PROJECT_DIR$/www/vendor/sebastian/exporter" />
+      <path value="$PROJECT_DIR$/www/vendor/phpunit/phpunit" />
+      <path value="$PROJECT_DIR$/www/vendor/sebastian/recursion-context" />
+      <path value="$PROJECT_DIR$/www/vendor/sebastian/object-enumerator" />
+      <path value="$PROJECT_DIR$/www/vendor/phpunit/php-file-iterator" />
+      <path value="$PROJECT_DIR$/www/vendor/vlucas/phpdotenv" />
+      <path value="$PROJECT_DIR$/www/vendor/phpunit/php-timer" />
+      <path value="$PROJECT_DIR$/www/vendor/sebastian/global-state" />
+      <path value="$PROJECT_DIR$/www/vendor/phpunit/php-text-template" />
+      <path value="$PROJECT_DIR$/www/vendor/sebastian/comparator" />
+      <path value="$PROJECT_DIR$/www/vendor/sebastian/version" />
+      <path value="$PROJECT_DIR$/www/vendor/theseer/tokenizer" />
+      <path value="$PROJECT_DIR$/www/vendor/phpspec/prophecy" />
+      <path value="$PROJECT_DIR$/www/vendor/webmozart/assert" />
+      <path value="$PROJECT_DIR$/www/vendor/sebastian/object-reflector" />
+      <path value="$PROJECT_DIR$/www/vendor/sebastian/resource-operations" />
+      <path value="$PROJECT_DIR$/www/vendor/sebastian/code-unit-reverse-lookup" />
+      <path value="$PROJECT_DIR$/www/vendor/sebastian/diff" />
+      <path value="$PROJECT_DIR$/www/vendor/composer" />
+      <path value="$PROJECT_DIR$/www/vendor/myclabs/deep-copy" />
+      <path value="$PROJECT_DIR$/www/vendor/phpdocumentor/reflection-docblock" />
+      <path value="$PROJECT_DIR$/www/vendor/phpdocumentor/type-resolver" />
+      <path value="$PROJECT_DIR$/www/vendor/phpdocumentor/reflection-common" />
+      <path value="$PROJECT_DIR$/www/vendor/doctrine/instantiator" />
+      <path value="$PROJECT_DIR$/www/vendor/symfony/polyfill-ctype" />
+      <path value="$PROJECT_DIR$/www/vendor/symfony/polyfill-mbstring" />
+      <path value="$PROJECT_DIR$/www/vendor/phar-io/version" />
+      <path value="$PROJECT_DIR$/www/vendor/phar-io/manifest" />
+      <path value="$PROJECT_DIR$/www/vendor/twig/twig" />
+    </include_path>
+  </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="7.1" />
+  <component name="PhpUnit">
+    <phpunit_settings>
+      <PhpUnitSettings load_method="CUSTOM_LOADER" custom_loader_path="$PROJECT_DIR$/www/vendor/autoload.php" />
+    </phpunit_settings>
+  </component>
 </project>

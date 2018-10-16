@@ -5,9 +5,14 @@ $(function()
 {
     $("#signUpForm").validate(
     {
+        // Disable checking after every key press!
+        onkeyup: false,
+
         // Custom validation handler...
         invalidHandler: function(form, validator)
         {
+
+
             // If there are no invalid values, simply return!
             if (!validator.numberOfInvalids())
                 return;

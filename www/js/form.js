@@ -2,6 +2,21 @@
 
 
 
+function locationToggle()
+{
+    //let $modal = $("#modal");
+
+    //$modal.css("display", "block");
+
+
+
+
+}
+
+
+
+
+
 
 function typeChanged(element)
 {
@@ -33,10 +48,23 @@ function updateAddress() {
     let zip = $("#zip").val();
     let country = $("#country").val();
 
-    if(street1 === "" && street2 === "" && city === "" && state === "" && zip === "" && country === "")
-        $("#geocodeButton").addClass("disabled");
-    else
-        $("#geocodeButton").removeClass("disabled");
+    let $button = $("#geocodeButton");
+
+    let $latitude = $("#latitude");
+    let $longitude = $("#longitude");
+
+    if(street1 === "" && street2 === "" && city === "" && state === "" && zip === "" && country === "") {
+        $button.addClass("disabled");
+        $button.attr("data-target", "");
+        $latitude.val("");
+        $longitude.val("");
+    }
+    else {
+        $button.removeClass("disabled");
+        $button.attr("data-target", "#location");
+
+    }
+
 
     street1 = street1.trim().split(" ").join("+");
     street2 = street2.trim().split(" ").join("+");
@@ -94,23 +122,27 @@ let map;
 
 function refreshMap(lat, lng, zoom) {
 
+    let $map = $("#map");
+    console.log($map);
+
     // Set default latitude, if the value is not provided...
     if(lat === undefined)
-        lat = config.mapsStartingLatitude;
+        lat = config.maps.google.defaults.latitude;
 
     // Set default longitude, if the value is not provided...
     if(lng === undefined)
-        lng = config.mapsStartingLongitude;
+        lng = config.maps.google.defaults.longitude;
 
     // Set default zoom factor, if the value is not provided...
     if(zoom === undefined)
-        zoom = config.mapsStartingZoom;
+        zoom = config.maps.google.defaults.zoom;
 
     // Instantiate a map inside the provided element.
     map = new google.maps.Map(document.getElementById("map"), {
         center: {lat: lat, lng: lng},
         zoom: zoom
     });
+
 
 }
 
@@ -128,6 +160,9 @@ function geocodeAddress(button)
     if($button.hasClass("disabled"))
         return;
 
+    //$button.attr("data-target", "#modal");
+
+
     // Configure the "idle" and "wait" state of the button.
     let idleText = $button.html();
     let idleWidth = $button.width();
@@ -140,7 +175,7 @@ function geocodeAddress(button)
     {
         let url = "https://maps.googleapis.com/maps/api/geocode/json?";
         url += "address=" + geocode;
-        url += "&key=" + config.mapsApiKey;
+        url += "&key=" + config.maps.google.api.key;
 
         $.get(url, function(data)
         {
