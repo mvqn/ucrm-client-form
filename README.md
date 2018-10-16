@@ -14,7 +14,7 @@ This is a stand-alone set of HTML, CSS and JS files that may need to be slightly
 4. Enjoy! 
 
 ## Screenshots
-- [Full Page Layout]("/screenshots/full.jpg")
+- [Full Page Layout](screenshots/full.jpg)
 
 
 ## About
