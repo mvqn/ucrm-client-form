@@ -13,8 +13,36 @@ This is a stand-alone set of HTML, CSS and JS files that may need to be slightly
 3. Edit the config.php file accordingly.
 4. Enjoy! 
 
+## Features
+
+While this project started out as a simple "proof of concept" for interfacing end-user WISP admins with the ability to
+embed a new customer request form and then automatically create a client lead in the UCRM system, it has certainly grown
+beyond what was originally envisioned.
+
+Some of the current features include:
+- Stand-alone or template-driven embeddable form pages to suit most needs. 
+- Google Maps Visualizer with draggable pin for precise location of customer service locations.
+- Google Maps Layers to allow for KML/KMZ overlays.
+- Email notification upon successful Client Lead creation in UCRM.
+
+Some of the (possibly) planned upcoming features include:
+- A "lite" client-side (HTML/CSS/JS ONLY) version for use in non-PHP driven sites.
+- A "widget" version for popular CMS systems (i.e. WordPress, Joomla, Drupal, etc.). 
+- A Single Page Application (SPA) version for frameworks like Angular, React and Vue.
+- Inclusion of a heat-mapping system, given the availability of an AirLink API and features.
+- Inclusion of a CAPTCHA style anti-spam system.
+- A matching UCRM Plugin to host the scripts, KMZ/KML, images, etc. OR Client Zone Integration (when available).   
+
+## Feature Requests
+
+For the time being, feature requests should probably be handled through the issue system here on 
+[Github](https://github.com/mvqn/ucrm-client-form/issues), but input and suggestions are also welcome on the
+[UCRM Plugins](https://community.ubnt.com/t5/UCRM-Plugins/bd-p/UCRMPlugins/) forum.
 
 ## Screenshots
+
+Full Page Layout
+
 - [Full Page Layout](screenshots/full.jpg)
 - [Compact Layout (Inputs)](screenshots/compact_01.jpg)
 - [Compact Layout (Location)](screenshots/compact_02.jpg)
