@@ -1,0 +1,30 @@
+{% extends "html.twig" %}
+
+{% block scripts %}
+{# Intialize and populate the config object with configuration values from PHP to be made available to JS. #}
+<script>
+    /**
+     * @class config
+     *
+     * @property {Object} ucrm
+     * @property {String} host
+     * @property {Object} rest
+     * @property {String} rest.url
+     * @property {String} rest.key
+     *
+     * @property {Object} maps
+     * @property {Object} maps.google
+     * @property {Object} maps.google.api
+     * @property {String} maps.google.api.key
+     * @property {Object} maps.google.defaults
+     * @property {Number} maps.google.defaults.latitude
+     * @property {Number} maps.google.defaults.longitude
+     * @property {Number} maps.google.defaults.zoom
+     */
+    let config = {{ config|json_encode|raw }};
+</script>
+
+<script src="js/validation.js"></script>
+<script src="js/form.js"></script>
+<script src="js/map.js"></script>
+{% endblock %}

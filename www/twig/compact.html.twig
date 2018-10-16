@@ -1,0 +1,243 @@
+{% extends "base.html.twig" %}
+
+{% set title = "Full Page Example" %}
+
+{% block content %}
+<div class="container">
+    <h2>Customer Request Form</h2>
+
+    <form id="signUpForm" action="submit.php" method="post">
+        <h4>Service Type</h4>
+        <div class="form-group">
+            <div class="form-check form-check-inline">
+                <input id="clientTypeResidential" class="form-check-input"
+                       type="radio"
+                       name="clientType"
+                       value="1"
+                       checked
+                       onclick="typeChanged(this)" />
+                <label class="form-check-label" for="clientTypeResidential">Residential</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input id="clientTypeCommercial" class="form-check-input"
+                       type="radio"
+                       name="clientType"
+                       value="2"
+                       onclick="typeChanged(this)" />
+                <label class="form-check-label" for="clientTypeCommercial">Commercial</label>
+            </div>
+        </div>
+
+        <h4>Contact</h4>
+
+
+        <div id="companyNameGroup" class="form-group" style="display:none">
+            <input id="companyName" class="form-control"
+                   type="text"
+                   name="companyName"
+                   placeholder="Company Name" />
+            <label for="companyName" class="sr-only">Company Name</label>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <input id="firstName" class="form-control"
+                       type="text"
+                       name="firstName"
+                       placeholder="First Name" />
+                <label for="firstName" class="sr-only">First Name</label>
+            </div>
+            <div class="form-group col-md-6">
+                <input id="lastName" class="form-control"
+                       type="text"
+                       name="lastName"
+                       placeholder="Last Name" />
+                <label for="lastName" class="sr-only">Last Name</label>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <input id="email" class="form-control"
+                       type="email"
+                       name="email"
+                       aria-describedby="emailHelp"
+                       placeholder="Email" />
+                <label for="email" class="sr-only">Email</label>
+                <small id="emailHelp" class="form-text text-muted">Your email will never be shared with anyone.</small>
+            </div>
+            <div class="form-group col-md-6">
+                <input id="phone" class="form-control"
+                       type="text"
+                       name="phone"
+                       placeholder="Phone" />
+                <label for="phone" class="sr-only">Phone</label>
+            </div>
+        </div>
+
+
+        <h4>Address</h4>
+
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <input id="street1" class="form-control"
+                       type="text"
+                       name="street1"
+                       aria-describedby="street1Help"
+                       placeholder="Address Line 1"
+                       onkeyup="updateAddress()" />
+                <label for="street1" class="sr-only">Address Line 1</label>
+                <small id="street1Help" class="form-text text-muted">Street address, P.O. Box, company name, c/o, etc.</small>
+            </div>
+
+            <div class="form-group col-md-6">
+                <input id="street2" class="form-control"
+                       type="text"
+                       name="street2"
+                       aria-describedby="street2Help"
+                       placeholder="Address Line 2"
+                       onkeyup="updateAddress()" />
+                <label for="street2" class="sr-only">Address Line 2</label>
+                <small id="street2Help" class="form-text text-muted">Apartment, suite, unit, floor, etc.</small>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <input id="city" class="form-control"
+                       type="text"
+                       name="city"
+                       placeholder="City / Town"
+                       onkeyup="updateAddress()" />
+                <label for="city" class="sr-only">City / Town</label>
+            </div>
+
+            <div class="form-group col-md-4">
+                <input id="state" class="form-control"
+                       type="text"
+                       name="state"
+                       placeholder="State / Province / Region"
+                       onkeyup="updateAddress()" />
+                <label for="state" class="sr-only">State / Province / Region</label>
+            </div>
+
+            <div class="form-group col-md-2">
+                <input id="zip" class="form-control"
+                       type="text"
+                       name="zipCode"
+                       placeholder="Zip / Postal Code"
+                       onkeyup="updateAddress()" />
+                <label for="zip" class="sr-only">Zip / Postal Code</label>
+            </div>
+
+
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <input id="country" class="form-control"
+                       type="text"
+                       name="country"
+                       placeholder="Country"
+                       onkeyup="updateAddress()" />
+                <label for="city" class="sr-only">Country</label>
+            </div>
+
+            <div class="form-group col-md-3">
+                <input id="latitude" class="form-control"
+                       type="text"
+                       name="latitude"
+                       placeholder="Latitude"
+                       readonly />
+            </div>
+            <div class="form-group col-md-3">
+                <input id="longitude" class="form-control"
+                       type="text"
+                       name="longitude"
+                       placeholder="Longitude"
+                       readonly />
+            </div>
+        </div>
+
+
+
+
+
+
+        <div class="form-group">
+            <div class="input-group">
+                <input id="geocode" class="form-control"
+                       type="hidden"
+                       name="geocode"
+                       aria-describedby="geocodeHelp"
+                       readonly
+                />
+            </div>
+            <strong id="geocodeHelp" class="form-text text-muted">
+                After entering your address above, click the "Locate" button below and then please be sure to position
+                the marker as close as possible to your desired service location.
+            </strong>
+        </div>
+        <div class="form-group">
+            <div id="geocodeButton" class="btn btn-secondary btn-block disabled" data-toggle="modal" data-target="" onclick="geocodeAddress(this)">Locate</div>
+        </div>
+
+        <div id="location" class="modal fade" tabIndex="-1" role="dialog" aria-labelledby="locationTitle">
+            <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="locationTitle">Locate</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+
+                        <div class="form-group">
+                            <div id="map"></div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Done</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+
+
+        <div id="tos" class="modal fade" tabIndex="-1" role="dialog" aria-labelledby="tosTitle">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="tosTitle">Terms of Service</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        {% include "includes/tos.html" %}
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <h4>Terms of Service</h4>
+        <div class="alert alert-warning text-center">
+            <strong>By clicking the button below, you hereby indicate that you have read and agree to the <a href="" data-toggle="modal" data-target="#tos">Terms of Service</a>.</strong>
+
+        </div>
+
+        <div class="form-group">
+            <div id="signUpButton" class="btn btn-primary btn-block" onclick="submit(this)">Sign-Up</div>
+        </div>
+
+    </form>
+</div>
+{% endblock %}
