@@ -1,9 +1,17 @@
-{% extends "base.html.twig" %}
+{% extends "mapped.html.twig" %}
 
 {% set title = "Full Page Example" %}
 
 {% block content %}
 <div class="container">
+    {% if config.site.demo %}
+    <div class="alert alert-primary">
+        {{ translations.REQUIRES }}:
+        <a href="https://github.com/mvqn-ucrm/plugin-notifier/raw/master/plugin-notifier.zip">
+            Notification Plugin</a>
+    </div>
+    {% endif %}
+
     <h2>Customer Request Form</h2>
 
     <form id="signUpForm" action="submit.php" method="post">

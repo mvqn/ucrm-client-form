@@ -1,13 +1,22 @@
-{% extends "base.html.twig" %}
+{% extends "mapped.html.twig" %}
 
-{% set title = "Full Page Example" %}
+{% set title = "Compact Example"|translate %}
 
 {% block content %}
 <div class="container">
-    <h2>Customer Request Form</h2>
+    {% if config.site.demo %}
+        <div class="alert alert-primary">
+            {{ "Requires"|translate }}:
+            <a href="https://github.com/mvqn-ucrm/plugin-notifier/raw/master/plugin-notifier.zip">
+                plugin-notifier
+            </a>
+        </div>
+    {% endif %}
+
+    <h2>{{ "Customer Request Form"|translate }}</h2>
 
     <form id="signUpForm" action="submit.php" method="post">
-        <h4>Service Type</h4>
+        <h4>{{ "Service Type"|translate }}</h4>
         <div class="form-group">
             <div class="form-check form-check-inline">
                 <input id="clientTypeResidential" class="form-check-input"
@@ -16,7 +25,8 @@
                        value="1"
                        checked
                        onclick="typeChanged(this.value)" />
-                <label class="form-check-label" for="clientTypeResidential">Residential</label>
+                <label class="form-check-label" for="clientTypeResidential">
+                    {{ "Residential"|translate }}</label>
             </div>
             <div class="form-check form-check-inline">
                 <input id="clientTypeCommercial" class="form-check-input"
@@ -24,34 +34,33 @@
                        name="clientType"
                        value="2"
                        onclick="typeChanged(this.value)" />
-                <label class="form-check-label" for="clientTypeCommercial">Commercial</label>
+                <label class="form-check-label" for="clientTypeCommercial">
+                    {{ "Commercial"|translate }}</label>
             </div>
         </div>
 
-        <h4>Contact</h4>
-
-
+        <h4>{{ "Contact" }}</h4>
         <div id="companyNameGroup" class="form-group" style="display:none">
             <input id="companyName" class="form-control"
                    type="text"
                    name="companyName"
-                   placeholder="Company Name" />
-            <label for="companyName" class="sr-only">Company Name</label>
+                   placeholder="{{ 'Company Name' }}" />
+            <label for="companyName" class="sr-only">{{ "Company Name"|translate }}</label>
         </div>
         <div class="form-row">
             <div class="form-group col-md-6">
                 <input id="firstName" class="form-control"
                        type="text"
                        name="firstName"
-                       placeholder="First Name" />
-                <label for="firstName" class="sr-only">First Name</label>
+                       placeholder="{{ 'First Name'|translate }}" />
+                <label for="firstName" class="sr-only">{{ "First Name"|translate }}</label>
             </div>
             <div class="form-group col-md-6">
                 <input id="lastName" class="form-control"
                        type="text"
                        name="lastName"
-                       placeholder="Last Name" />
-                <label for="lastName" class="sr-only">Last Name</label>
+                       placeholder="{{ 'Last Name'|translate }}" />
+                <label for="lastName" class="sr-only">{{ "Last Name"|translate }}</label>
             </div>
         </div>
         <div class="form-row">
@@ -60,32 +69,32 @@
                        type="email"
                        name="email"
                        aria-describedby="emailHelp"
-                       placeholder="Email" />
-                <label for="email" class="sr-only">Email</label>
-                <small id="emailHelp" class="form-text text-muted">Your email will never be shared with anyone.</small>
+                       placeholder="{{ 'Email'|translate }}" />
+                <label for="email" class="sr-only">{{ "Email"|translate }}</label>
+                <small id="emailHelp" class="form-text text-muted">
+                    {{ "Your email will never be shared with anyone."|translate }}</small>
             </div>
             <div class="form-group col-md-6">
                 <input id="phone" class="form-control"
                        type="text"
                        name="phone"
-                       placeholder="Phone" />
-                <label for="phone" class="sr-only">Phone</label>
+                       placeholder="{{ 'Phone'|translate }}" />
+                <label for="phone" class="sr-only">{{ "Phone"|translate }}</label>
             </div>
         </div>
 
-
-        <h4>Address</h4>
-
+        <h4>{{ "Address"|translate }}</h4>
         <div class="form-row">
             <div class="form-group col-md-6">
                 <input id="street1" class="form-control"
                        type="text"
                        name="street1"
                        aria-describedby="street1Help"
-                       placeholder="Address Line 1"
+                       placeholder="{{ 'Address Line 1'|translate }}"
                        onkeyup="updateAddress()" />
-                <label for="street1" class="sr-only">Address Line 1</label>
-                <small id="street1Help" class="form-text text-muted">Street address, P.O. Box, company name, c/o, etc.</small>
+                <label for="street1" class="sr-only">{{ "Address Line 1"|translate }}</label>
+                <small id="street1Help" class="form-text text-muted">
+                    {{ "Street address, P.O. Box, company name, c/o, etc."|translate }}</small>
             </div>
 
             <div class="form-group col-md-6">
@@ -93,10 +102,11 @@
                        type="text"
                        name="street2"
                        aria-describedby="street2Help"
-                       placeholder="Address Line 2"
+                       placeholder="{{ 'Address Line 2'|translate }}"
                        onkeyup="updateAddress()" />
-                <label for="street2" class="sr-only">Address Line 2</label>
-                <small id="street2Help" class="form-text text-muted">Apartment, suite, unit, floor, etc.</small>
+                <label for="street2" class="sr-only">{{ "Address Line 2"|translate }}</label>
+                <small id="street2Help" class="form-text text-muted">
+                    {{ "Apartment, suite, unit, floor, etc."|translate }}</small>
             </div>
         </div>
 
@@ -105,27 +115,27 @@
                 <input id="city" class="form-control"
                        type="text"
                        name="city"
-                       placeholder="City / Town"
+                       placeholder="{{ 'City / Town'|translate }}"
                        onkeyup="updateAddress()" />
-                <label for="city" class="sr-only">City / Town</label>
+                <label for="city" class="sr-only">{{ "City / Town"|translate }}</label>
             </div>
 
             <div class="form-group col-md-4">
                 <input id="state" class="form-control"
                        type="text"
                        name="state"
-                       placeholder="State / Province / Region"
+                       placeholder="{{ 'State / Province / Region'|translate }}"
                        onkeyup="updateAddress()" />
-                <label for="state" class="sr-only">State / Province / Region</label>
+                <label for="state" class="sr-only">{{ "State / Province / Region"|translate }}</label>
             </div>
 
             <div class="form-group col-md-2">
                 <input id="zip" class="form-control"
                        type="text"
                        name="zipCode"
-                       placeholder="Zip / Postal Code"
+                       placeholder="{{ 'Zip / Postal Code'|translate }}"
                        onkeyup="updateAddress()" />
-                <label for="zip" class="sr-only">Zip / Postal Code</label>
+                <label for="zip" class="sr-only">{{ "Zip / Postal Code"|translate }}</label>
             </div>
 
 
@@ -135,31 +145,26 @@
                 <input id="country" class="form-control"
                        type="text"
                        name="country"
-                       placeholder="Country"
+                       placeholder="{{ 'Country'|translate }}"
                        onkeyup="updateAddress()" />
-                <label for="city" class="sr-only">Country</label>
+                <label for="city" class="sr-only">{{ "Country"|translate }}</label>
             </div>
 
             <div class="form-group col-md-3">
                 <input id="latitude" class="form-control"
                        type="text"
                        name="latitude"
-                       placeholder="Latitude"
+                       placeholder="{{ 'Latitude'|translate }}"
                        readonly />
             </div>
             <div class="form-group col-md-3">
                 <input id="longitude" class="form-control"
                        type="text"
                        name="longitude"
-                       placeholder="Longitude"
+                       placeholder="{{ 'Longitude'|translate }}"
                        readonly />
             </div>
         </div>
-
-
-
-
-
 
         <div class="form-group">
             <div class="input-group">
@@ -170,75 +175,73 @@
                        readonly
                 />
             </div>
-            <strong id="geocodeHelp" class="form-text text-muted">
-                After entering your address above, click the "Locate" button below and then please be sure to position
-                the marker as close as possible to your desired service location.
+            <strong id="geocodeHelp" class="form-text text-muted text-justify">
+                {{ "After entering your address above, click the \"Locate\" button below and then please be sure to position the marker as close as possible to your desired service location."|translate }}
             </strong>
         </div>
         <div class="form-group">
-            <div id="locateButton" class="btn btn-secondary btn-block disabled" data-toggle="modal" data-target="" onclick="geocodeAddress(this)">Locate</div>
+            <div id="locateButton" class="btn btn-secondary btn-block disabled" data-toggle="modal" data-target=""
+                 onclick="geocodeAddress(this)">{{ "Locate"|translate }}</div>
         </div>
 
         <div id="location" class="modal fade" tabIndex="-1" role="dialog" aria-labelledby="locationTitle">
             <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="locationTitle">Locate</h5>
+                        <h5 class="modal-title" id="locationTitle">
+                            {{ "Locate"|translate }}</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
                     <div class="modal-body">
-
                         <div class="form-group">
                             <div id="map"></div>
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Done</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                            {{ "Done"|translate }}</button>
                     </div>
                 </div>
             </div>
         </div>
 
-
-
-
-
-
-
         <div id="tos" class="modal fade" tabIndex="-1" role="dialog" aria-labelledby="tosTitle">
-            <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="tosTitle">Terms of Service</h5>
+                        <h5 class="modal-title" id="tosTitle">{{ "Terms of Service"|translate }}</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
                     <div class="modal-body">
-                        {% include "includes/tos.html" %}
+                        {% set path = "includes/tos/"~language~".html" %}
+                        {% if file_exists(path) %}{% include path %}{% endif %}
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                            {{ "Close"|translate }}
+                        </button>
                     </div>
                 </div>
             </div>
         </div>
 
-
-
-        <h4>Terms of Service</h4>
+        <h4>{{ "Terms of Service"|translate }}</h4>
         <div class="alert alert-warning text-center">
-            <strong>By clicking the button below, you hereby indicate that you have read and agree to the
-                <a href="#" data-toggle="modal" data-target="#tos">Terms of Service</a>.</strong>
+            <strong>
+                {{ "By clicking the button below, you hereby indicate that you have read and agree to the "|translate }}
+                <a href="#" data-toggle="modal" data-target="#tos">{{ "Terms of Service"|translate }}</a>.
+            </strong>
 
         </div>
 
         <div class="form-group">
-            <div id="signUpButton" class="btn btn-primary btn-block" onclick="submit(this)">Sign-Up</div>
+            <div id="signUpButton" class="btn btn-primary btn-block" onclick="submit(this)">
+                {{ "Sign-Up"|translate }}</div>
         </div>
-
     </form>
 </div>
 {% endblock %}

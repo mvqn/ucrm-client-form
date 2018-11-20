@@ -1,9 +1,25 @@
 
 
+
+function translate(text)
+{
+    if(text in translations)
+        return translations[text];
+
+    return text;
+}
+
+
+
+
+
+
 /**
  * Runs when the document.ready event is triggered.
  */
 $(function() {
+
+
     // Configure the form validation options...
     $("#signUpForm").validate({
         // Disable checking after every key press!
@@ -51,19 +67,19 @@ $(function() {
         },
         // Specify validation error messages
         messages: {
-            companyName: "When Client Type = Commercial, Company Name is required.",
-            firstName: "First Name is required.",
-            lastName: "Last Name is required.",
-            email: "A valid Email address is required.",
-            street1: "Street Address is required.",
-            city: "City is required.",
-            state: "State is required.",
-            zipCode: "Zip Code is required.",
-            country: "Country is required.",
+            companyName: translate("When Client Type is Commercial, Company Name is required."),
+            firstName: translate("First Name is required."),
+            lastName: translate("Last Name is required."),
+            email: translate("A valid Email address is required."),
+            street1: translate("Street Address is required."),
+            city: translate("City is required."),
+            state: translate("State is required."),
+            zipCode: translate("Zip Code is required."),
+            country: translate("Country is required."),
 
-            latitude: "A valid latitude must be calculated.",
-            longitude: "A valid longitude must be calculated.",
-            agreement: "You must except the terms of service prior to submission."
+            latitude: translate("A valid latitude must be calculated."),
+            longitude: translate("A valid longitude must be calculated."),
+            agreement: translate("You must except the terms of service prior to submission.")
         }
     });
 });

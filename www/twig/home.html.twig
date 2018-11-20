@@ -1,15 +1,37 @@
-{%  extends "html.twig" %}
+{%  extends "base.html.twig" %}
 
-{% set title = "Home" %}
+{% set title = "Home"|translate %}
 
 {% block content %}
 <div class="container">
-    <h2>Customer Request Form</h2>
+    <div class="alert alert-primary">{{ "This site is currently in demo mode."|translate }}</div>
 
-    <h4>Examples</h4>
+    <h4>{{ "Instructions"|translate }}</h4>
+    <div class="text-justify">
+        <p>{{ "At any time, you can set the UCRM URL, UCRM App Key or Language."|translate }}</p>
+        <p>
+            {{ ("Clicking the Apply button will set these as site-wide cookies for this browser and will allow you " ~
+            "to use any of the pages here that require submission to a working UCRM system or have supported " ~
+            "translations.")|translate }}
+        </p>
+    </div>
 
-    - <a href="/full.php">Full Page</a><br/>
-    - <a href="/compact.php">Compact Page</a><br/>
+    <h4>{{ "Projects"|translate }}</h4>
+
+    <h6>{{ "Customer Registration Form"|translate }}</h6>
+    <div class="text-justify">
+        <p>{{ "A stand-alone set of PHP, HTML, JS and CSS for use on a dedicated company website."|translate }}</p>
+    </div>
+    <div class="">
+        <p class="float-left mr-2">{{ "Requirements"|translate }}:</p>
+        <ul class="list-inline">
+            <li class="list-inline-item">
+                <a href="https://github.com/mvqn-ucrm/plugin-notifier/raw/master/plugin-notifier.zip">
+                    plugin-notifier
+                </a>
+            </li>
+        </ul>
+    </div>
 
 
 </div>

@@ -61,9 +61,6 @@ fabric.properties
 .idea/httpRequests
 
 www/vendor/
-www/assets/
-.env
-composer.lock
-config.dev.php
+www/.env
 
-yarn-error.log
+www/yarn-error.log

@@ -1,22 +1,32 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ language }}">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title>{{ title }}</title>
     <link rel="stylesheet" href="assets/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="assets/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/featherlight/src/featherlight.css">
+    {% if config.site.demo %}<link rel="stylesheet" href="css/demo.css">{% endif %}
     <link rel="stylesheet" href="css/form.css">
     {% block links %}{% endblock %}
 </head>
 <body>
+{# Pad the top of the content to avoid it being hidden by the navbar, when in demo mode! #}
+{% if config.site.demo %}
+    {% block navbar %}{% endblock %}
+    <div style="height:56px;">&nbsp;</div>
+{% endif %}
 
+{% block response %}{% endblock %}
 {% block content %}{% endblock %}
 
 <script src="assets/jquery/dist/jquery.min.js"></script>
 <script src="assets/jquery-validation/dist/jquery.validate.min.js"></script>
 <script src="assets/bootstrap/dist/js/bootstrap.min.js"></script>
 <script src="assets/featherlight/src/featherlight.js"></script>
+
+{% if config.site.demo %}<script src="js/demo.js"></script>{% endif %}
 
 {% block scripts %}{% endblock %}
 
